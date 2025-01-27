@@ -1,5 +1,4 @@
 import requests
-import database
 from pathlib import Path
 import json
 import time
@@ -21,8 +20,9 @@ def name_to_idList(name):
     target_list = [] 
     for item_info in items_database:
         if item_info['LocalizedNames'] is not None:
-            if name in item_info['LocalizedNames']["ZH-CN"]:
-                target_list.append(item_info['UniqueName'])
+            if "ZH-CN" in item_info['LocalizedNames']:
+                if name in item_info['LocalizedNames']["ZH-CN"]:
+                    target_list.append(item_info['UniqueName'])
     print(target_list)
     if target_list == '':
         print('没有查询到item表中有对应的装备，可能是输入错误或者缺少该本地化项目')

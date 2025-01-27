@@ -1,5 +1,4 @@
 import requests
-import database
 import re
 import json
 import time
