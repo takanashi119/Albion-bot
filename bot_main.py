@@ -10,7 +10,13 @@ from zoneinfo import ZoneInfo
 class BOT():
 
     URL = 'https://www.kookapp.cn'
-
+    quility_dict = {
+        1:"无边",
+        2:"铁边",
+        3:"铜边",
+        4:"银边",
+        5:"金边",
+    }
 
     def load_Settings(self):
         with open("Settings.json",encoding="utf-8") as file:
@@ -162,7 +168,7 @@ class BOT():
                                 for priceInfo in price_list:
                                     if priceInfo['enchantment'] == int(content[-1]) and priceInfo['tier'] == int(content[-3]) :
                                         
-                                        responce_content += f'{priceInfo['name']}: {priceInfo['tier']}.{priceInfo['enchantment']} 品质:{priceInfo['quality']} 价格{priceInfo['price']:,} \n更新:{priceInfo['update_time']}\n\n'
+                                        responce_content += f'{priceInfo['name']}: {priceInfo['tier']}.{priceInfo['enchantment']} {self.quility_dict.get(priceInfo['quality'],"invalid key")} 价格{priceInfo['price']:,} \n更新:{priceInfo['update_time']}\n\n'
                     
                         
                     #找到信息后回复该玩家
