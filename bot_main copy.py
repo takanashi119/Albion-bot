@@ -8,9 +8,15 @@ from zoneinfo import ZoneInfo
 
 
 class BOT():
-
+    
+    TOKEN = "Bot 1/MzM4NzQ=/1waJJzIp1/TPECHSCdxGHA=="
+    HEADERS = {
+        "Authorization": TOKEN,
+        "Content-Type": "application/json"
+        }
     URL = 'https://www.kookapp.cn'
-
+    SERVER_ID = '1906198267648059'
+    CHANNEL_ID = '9744163465012843'
 
     def load_Settings(self):
         with open("Settings.json",encoding="utf-8") as file:
@@ -100,7 +106,7 @@ class BOT():
     def run_bot(self):
         last_msg_time = 0
         #记录最后一个消息的时间
-        self.load_Settings()
+
         while True:
         #主循环 每五秒拉取一次信息并判断是否需要处理
             try:
