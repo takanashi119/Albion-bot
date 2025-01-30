@@ -1,4 +1,4 @@
 TOKEN.txt
 .venv
 bot_main copy.py
-_pycache_
+__pycache__
